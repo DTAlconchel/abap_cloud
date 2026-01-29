@@ -40,8 +40,8 @@ This is the “Clean Core friendly” pattern: **apps consume CDS**, not tables.
 
 ### 3) Managed RAP Behavior (CRUD + Locks + ETag + Managed Numbering)
 We turn the CDS model into a transactional BO using **managed RAP**:
-- Behavior definition (Root): [`ZC_FI_DOC.bdef`](src/zc_fi_doc.bdef.asbdef)
-- Behavior definition (Child): [`ZC_FI_ITEM.bdef`](src/zc_fi_item.bdef.asbdef)
+- Behavior definition (Root): [`ZC_FI_DOC.bdef`](src/zc_fi_doc.bdef.asbdef#L1-L25)
+- Behavior definition (Child): [`ZC_FI_DOC.bdef`](src/zc_fi_doc.bdef.asbdef#L26-L44)
 
 What’s inside:
 - `managed implementation in class ...`
@@ -54,7 +54,7 @@ What’s inside:
 ### 4) “Reconcile” Action in RAP (EML in LOCAL MODE)
 Users can press a button in Fiori Elements to reconcile documents:
 - Behavior pool class: [`ZBP_C_FI_DOC`](src/zbp_c_fi_doc.clas.abap)
-- Handler implementation (local): [`ZBP_C_FI_DOC locals`](src/zbp_c_fi_doc.clas.locals_imp.abap)
+- Handler implementation (local): [`ZBP_C_FI_DOC lhc_doc`](src/zbp_c_fi_doc.clas.locals_imp.abap)
 
 Action flow (high level):
 - `READ ENTITIES` of selected headers
