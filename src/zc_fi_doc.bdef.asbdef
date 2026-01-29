@@ -1,0 +1,44 @@
+managed implementation in class zbp_c_fi_doc unique;
+strict ( 2 );
+
+//// HEADER
+//// -----------------------------------
+define behavior for ZC_FI_DOC alias Doc
+persistent table zfi_doc_h
+lock master
+authorization master ( instance )
+etag master doc_date
+
+{
+
+  create ( authorization : global );
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) doc_uuid;
+
+  action (features : instance) Reconcile  result [1] $self;
+
+  association _Items { create; }
+
+}
+
+// ITEMS
+// -----------------------------------
+define behavior for ZC_FI_ITEM //alias <alias_name>
+persistent table zfi_doc_i
+lock dependent by _Doc
+authorization dependent by _Doc
+//etag master <field_name>
+
+{
+
+  update;
+  delete;
+
+  field ( numbering : managed, readonly ) item_uuid;
+  field ( readonly ) doc_uuid;
+
+  association _Doc;
+
+}

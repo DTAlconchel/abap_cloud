@@ -1,0 +1,19 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Business Logic Template",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZJCE_FI"
+  },
+  "parameters": {
+    "singleValueParameters": [
+      {
+        "name": "BUKRS",
+        "value": "1000"
+      }
+    ]
+  }
+}
